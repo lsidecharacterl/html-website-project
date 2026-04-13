@@ -1,0 +1,11 @@
+h1 {
+  color: red;
+  font-size: 62px;
+  font-weight: 900;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+}
+p {
+  line-height: 24px;
+}
