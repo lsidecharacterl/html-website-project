@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080808;
+  color: white;
+  overflow: hidden;
+}
+
+/* INTRO SCREEN */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #2b0055, #080808 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+}
+
+.logo {
+  font-size: 4rem;
+  letter-spacing: 10px;
+  animation:
+    glow 1.5s infinite alternate,
+    slideUp 1.5s ease;
+}
+
+.loading-bar {
+  width: 250px;
+  height: 6px;
+  background: #333;
+  margin-top: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.loading-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #b700ff;
+  animation: load 3s forwards;
+}
+
+.intro.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* MAIN WEBSITE */
+.website {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111, #220033);
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 50px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.hero {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 80px;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  color: #ddd;
+}
+
+button {
+  width: 150px;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: #b700ff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: #ff00cc;
+}
+
+/* ANIMATIONS */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #b700ff;
+  }
+  to {
+    text-shadow:
+      0 0 30px #ff00cc,
+      0 0 60px #b700ff;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes load {
+  to {
+    width: 100%;
+  }
+}
